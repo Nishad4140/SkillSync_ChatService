@@ -7,6 +7,7 @@ type Message struct {
 	Message string    `json:"Message" bson:"message"`
 	Time    time.Time `json:"Time" bson:"time"`
 	Name    string    `json:"Name" bson:"name"`
+	Seen    bool      `json:"Seen" bson:"seen"`
 }
 
 type InsertIntoRoomMessage struct {

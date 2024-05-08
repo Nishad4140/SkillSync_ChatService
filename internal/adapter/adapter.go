@@ -22,7 +22,7 @@ func NewChatAdapter(db *mongo.Database) *ChatAdapter {
 func (chat *ChatAdapter) InsertMessage(msg entities.InsertIntoRoomMessage) error {
 	collection := chat.DB.Collection("chatCollection")
 	filter := bson.D{{"room_id", msg.RoomID}}
-	update := bson.D{{"$push", bson.D{{"messages", msg.Messages}}}}
+	update := bson.D{{"$push", bson.D{{"messages", msg.Messages, }}}}
 	opts := options.Update().SetUpsert(true)
 	_, err := collection.UpdateOne(context.TODO(), filter, update, opts)
 	if err != nil {
