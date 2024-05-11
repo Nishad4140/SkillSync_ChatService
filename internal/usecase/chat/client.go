@@ -47,7 +47,7 @@ func (client *Client) Serve(msgs []entities.Message) {
 			log.Println("error happened, closing connection")
 			break
 		}
-		message := entities.Message{Type: msgtype, Message: string(p), Time: time.Now(), Name: client.Name, Seen: false}
+		message := entities.Message{Type: msgtype, Message: string(p), Time: time.Now(), Name: client.Name}
 		client.Pool.Broadcast <- message
 		log.Printf("message recieved from %s", client.ClientID)
 	}
